@@ -55,7 +55,11 @@ function App() {
         if (bounds.sw && bounds.ne) {
             setIsLoading(true)
 
-            getWeatherData(coordinates.lat, coordinates.lng).then((data) => setWeatherData(data))
+            getWeatherData(coordinates.lat, coordinates.lng).then((data) => {
+                // console.log("weaher data is")
+                // console.log({ data })
+                setWeatherData(data)
+            })
 
             getPlacesData(type, bounds.sw, bounds.ne) //because this is an async function we have to call .then on it
                 .then((data) => {
